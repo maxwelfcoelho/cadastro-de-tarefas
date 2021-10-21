@@ -22,6 +22,7 @@ app.post('/api/register', user.register)
 app.post('/api/login', user.login)
 
 app.get('/api/tasks', isLogged, task.list)
+app.post('/api/task/create', isLogged, task.create)
 
 app.listen(PORT, () => {
   console.log(`⚡️[server]: API rodando em http://localhost:${PORT}`)

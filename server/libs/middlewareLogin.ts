@@ -6,7 +6,7 @@ import { error } from './bindError'
 declare global {
     namespace Express {
         interface Request {
-            user: IUser
+            user: any
         }
     }
 }
