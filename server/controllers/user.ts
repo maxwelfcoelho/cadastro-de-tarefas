@@ -17,6 +17,20 @@ const register =  async (req: Request<any>, res: Response<any>) => {
     }
 }
 
+const login =  async (req: Request<any>, res: Response<any>) => {
+    try {
+        const email: string = req.body.email;
+        const password: string = req.body.password;
+
+        const token = await user.login({email, password})
+
+        return res.status(200).json(token);
+    } catch (err: any) {
+        return error(res, err)
+    }
+}
+
 export {
-    register
+    register,
+    login
 }

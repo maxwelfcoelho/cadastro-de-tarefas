@@ -1,12 +1,10 @@
 import * as bcrypt from 'bcrypt'
+import { sign } from 'jsonwebtoken'
 
 import { IUser } from '../types/IUser'
 import { User } from '../models/userModel'
-import { connect } from '../libs/mongodb'
 
 const register = async (user: IUser) => {
-    await connect()
-
     if (!user.name) {
         throw new Error('The name is required')
     }
@@ -33,6 +31,35 @@ const register = async (user: IUser) => {
     return true;
 }
 
+const login = async (user: IUser) => {
+    if (!user.email) {
+        throw new Error('The email is required')
+    }
+
+    if (!user.password) {
+        throw new Error('The password is required')
+    }
+
+    const foundUser = await User.findOne({ email: user.email })
+    if (!foundUser) {
+        throw new Error('Email or password does not match')
+    }
+
+    const isPasswordEquals = await bcrypt.compare(user.password, foundUser.password)
+    if (!isPasswordEquals) {
+        throw new Error('Email or password does not match')
+    }
+
+    const token = sign({ 
+        userId: foundUser._id, 
+        name: foundUser.name, 
+        email: foundUser.email 
+    }, process.env.JWT_SECRET as string)
+
+    return { token }
+}
+
 export {
-    register
+    register,
+    login
 }
