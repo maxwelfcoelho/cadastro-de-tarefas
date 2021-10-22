@@ -45,9 +45,25 @@ const update = async (task: ITask) => {
     return true
 }
 
+const setComplete = async (id: string) => {
+    if (!id) {
+        throw new Error('Id is required')
+    }
+
+    const foundTask = await Task.findById({ _id: id })
+    if (!foundTask) {
+        throw new Error('Task not found')
+    }
+    foundTask.completed = !foundTask.completed
+    await foundTask.save()
+
+    return true
+}
+
 export {
     list,
     create,
     remove,
-    update
+    update,
+    setComplete
 }

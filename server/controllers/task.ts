@@ -47,9 +47,22 @@ const update = async (req: Request<any>, res: Response<any>) => {
     }
 }
 
+const setComplete = async (req: Request<any>, res: Response<any>) => {
+    try {
+        const id = req.params.id
+
+        await task.setComplete(id)
+
+        res.status(200).json({ message: "Toogle completed successfully" })
+    } catch (err: any) {
+        return error(res, err)
+    }
+}
+
 export {
     list,
     create,
     remove,
-    update
+    update,
+    setComplete
 }
