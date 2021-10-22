@@ -20,7 +20,18 @@ const create = async (name: string, userId: string) => {
     return true;
 }
 
+const remove = async (id: string) => {
+    if (!id) {
+        throw new Error('Id is required')
+    }
+
+    await Task.findByIdAndRemove(id)
+
+    return true;
+}
+
 export {
     list,
-    create
+    create,
+    remove
 }

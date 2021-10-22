@@ -21,7 +21,20 @@ const create = async (req: Request<any>, res: Response<any>) => {
     }
 }
 
+const remove = async (req: Request<any>, res: Response<any>) => {
+    try {
+        const id = req.params.id
+
+        await task.remove(id)
+
+        res.status(200).json({ message: 'Deleted the task successfully' })
+    } catch (err: any) {
+        return error(res, err)
+    }
+}
+
 export {
     list,
-    create
+    create,
+    remove
 }
