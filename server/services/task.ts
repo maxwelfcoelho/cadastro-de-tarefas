@@ -1,4 +1,5 @@
 import { Task } from "../models/taskModel"
+import { ITask } from "../types/ITask"
 
 const list = async (userId: string) => {
     const tasks = await Task.find({ user: userId })
@@ -30,8 +31,23 @@ const remove = async (id: string) => {
     return true;
 }
 
+const update = async (task: ITask) => {
+    if (!task.id) {
+        throw new Error('Id is required')
+    }
+
+    if (!task.name) {
+        throw new Error('Name is required')
+    }
+
+    await Task.findOneAndUpdate({ _id: task.id }, {name: task.name})
+
+    return true
+}
+
 export {
     list,
     create,
-    remove
+    remove,
+    update
 }

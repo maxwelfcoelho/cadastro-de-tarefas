@@ -33,8 +33,23 @@ const remove = async (req: Request<any>, res: Response<any>) => {
     }
 }
 
+const update = async (req: Request<any>, res: Response<any>) => {
+    try {
+        const id = req.body.id
+        const name = req.body.name
+
+        await task.update({id, name})
+
+        return res.status(200).json({ message: 'Updated successfully' })
+
+    } catch (err: any) {
+        return error(res, err)
+    }
+}
+
 export {
     list,
     create,
-    remove
+    remove,
+    update
 }
