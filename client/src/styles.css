@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.button {
+    padding: 10px;
+    border: 1px solid #DBDBDB;
+    cursor: pointer;
+}
+
+.button-main {
+    background-color: #457b9d;
+    color: #FFF;
+}
+
+.button-full {
+    display: block;
+    width: 100%;
+}
+
+.text-error {
+    color: #e63946;
+}

@@ -1,0 +1,35 @@
+.register {
+    background-color: #FAFAFA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form {
+    background-color: #FFFFFF;
+    margin-top: 30px;
+    border: 1px solid #DBDBDB;
+    padding: 20px;
+    height: 360px;
+    width: 400px;
+}
+
+.form h2 {
+    margin-bottom: 20px;
+}
+
+.form input {
+    width: 100%;
+    border: 1px solid #DBDBDB;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.form input:focus {
+    outline: 1px solid #457b9d;
+}
+
+.form p {
+    margin-top: 20px;
+}

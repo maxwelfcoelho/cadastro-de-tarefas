@@ -1,0 +1,56 @@
+<div class="register">
+
+    <form [formGroup]="registerForm" class="form" (ngSubmit)="register()">
+        <h2>Cadastrar</h2>
+
+        <div>
+            <input type="text" placeholder="Nome" formControlName="name">
+
+            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+    class="text-error">
+
+                <div *ngIf="name.errors?.required">
+                    Nome é obrigatório
+                </div>
+                <div *ngIf="name.errors?.minlength">
+                    Nome precisa de um tamanho minimo de 4
+                </div>
+            </div>
+        </div>
+        <div>
+            <input type="email" placeholder="Email" formControlName="email">
+
+            <div *ngIf="email.invalid && (email.dirty || email.touched)"
+    class="text-error">
+
+                <div *ngIf="email.errors?.required">
+                    Email é obrigatório
+                </div>
+
+                <div *ngIf="email.errors?.email">
+                    Email invalido
+                </div>
+            </div>
+        </div>
+        <div>
+            <input type="password" placeholder="Senha" formControlName="password">
+
+            <div *ngIf="password.invalid && (password.dirty || password.touched)"
+    class="text-error">
+
+                <div *ngIf="password.errors?.required">
+                    Senha é obrigatória
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="error" class="text-error">
+            {{ error }}
+        </div>
+
+        <button class="button button-main button-full">Cadastrar</button>
+
+        <p>Já tem uma conta? <a href="login">clique para o login</a></p>
+    </form>
+
+</div>
