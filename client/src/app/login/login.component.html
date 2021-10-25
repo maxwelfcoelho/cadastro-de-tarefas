@@ -14,12 +14,17 @@
                 </div>
 
                 <div *ngIf="email.errors?.email">
-                    Email invalido
+                    Senha invalida
                 </div>
             </div>
         </div>
-        <div>
-            <input type="password" placeholder="Password" formControlName="password">
+        <div class="input-wrapper">
+            <input [type]="showPassword ? 'text' : 'password'" placeholder="Password" formControlName="password">
+            <fa-icon 
+                class="input-icon" 
+                [icon]="showPassword ? faEye : faEyeSlash"
+                (click)="showPassword = !showPassword"
+            ></fa-icon>
 
             <div *ngIf="password.invalid && (password.dirty || password.touched)"
     class="text-error">
