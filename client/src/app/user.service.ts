@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IUser } from './interfaces/IUser';
+import { IUser } from './models/IUser';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +25,9 @@ export class UserService {
       email: user.email,
       password: user.password
     });
+  }
+
+  public getToken(): string {
+    return sessionStorage.getItem('token') ?? '';
   }
 }

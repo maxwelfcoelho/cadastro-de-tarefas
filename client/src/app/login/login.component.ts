@@ -4,6 +4,7 @@ import { UserService } from '../user.service';
 
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -24,21 +25,27 @@ export class LoginComponent implements OnInit {
 
   faEye = faEye;
   faEyeSlash = faEyeSlash;
-  showPassword = true;
+  showPassword = false;
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private readonly userService: UserService,
+    private readonly router: Router
+  ){ }
 
   ngOnInit(): void {
+    this.loginForm.valueChanges.subscribe(selectedValue => {
+      this.error = ''
+    })
   }
 
   login(): void {
     const email = this.loginForm.get('email')?.value;
     const password = this.loginForm.get('password')?.value;
+
     this.userService.login({email, password}).subscribe(
       (data) => {
-        const token = data.token;
-        localStorage.setItem('token', token);
-        window.location.href = 'http://localhost:4200/tasks';
+        sessionStorage.setItem('token', data.token);
+        return this.router.navigate(['/']);
       },
       (err) => {
         this.error = err.error.message;

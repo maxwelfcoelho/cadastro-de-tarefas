@@ -41,3 +41,16 @@
     font-size: 1.2em;
     cursor: pointer;
 }
+
+.form .noaccount {
+    margin: 10px 0;
+}
+
+.form .noaccount a {
+    text-decoration: none;
+    color: #457b9d;
+}
+
+.form .noaccount a:hover {
+    text-decoration: underline;
+}

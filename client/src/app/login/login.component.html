@@ -14,7 +14,7 @@
                 </div>
 
                 <div *ngIf="email.errors?.email">
-                    Senha invalida
+                    Email invalido
                 </div>
             </div>
         </div>
@@ -34,6 +34,12 @@
                 </div>
             </div>
         </div>
+
+        <div *ngIf="error" class="text-error">
+            {{ error }}
+        </div>
+
+        <p class="noaccount">Não tem uma conta? <a href="/register">Registrar</a></p>
 
         <button class="button button-main button-full">Logar</button>
     </form>
