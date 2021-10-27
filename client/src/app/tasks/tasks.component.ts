@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ITask } from '../models/ITask';
 import { TasksService } from '../tasks.service';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faEdit } from '@fortawesome/free-regular-svg-icons';
+import { faCheckSquare } from '@fortawesome/free-regular-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tasks',
@@ -12,8 +16,15 @@ export class TasksComponent implements OnInit {
   tasks: ITask[] = [];
   user: string = sessionStorage.getItem('name') ?? '';
 
+  trashIcon = faTrashAlt;
+  editIcon = faEdit;
+  checkIcon = faCheckSquare;
+
+  hideModal = true;
+
   constructor(
-    private readonly tasksService: TasksService
+    private readonly tasksService: TasksService,
+    private readonly router: Router
   ) { }
 
   ngOnInit(): void {
@@ -25,8 +36,12 @@ export class TasksComponent implements OnInit {
       (data) => {
          this.tasks = data
       }
-
     )
+  }
+
+  logout(): void {
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 }
