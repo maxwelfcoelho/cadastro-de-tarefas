@@ -1,0 +1,56 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px;
+    border: 1px solid #DDD;
+}
+
+.navbar ul {
+    list-style: none;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.tasks {
+    margin-top: 50px;
+}
+
+.tasks table {
+    width: 100%;
+}
+
+.tasks .task {
+    border: 1px solid #DDD;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+}
+
+.tasks .task:hover {
+    background-color: #D3EAF1;
+}
+
+.tasks .task-name {
+    width: 95%;
+}
+
+.tasks .buttons {
+    width: 5%;
+}
+
+.tasks td:hover + .hide {
+    visibility: visible;
+}
+
+.tasks .buttons td {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.hide {
+    visibility: visible;
+}
+

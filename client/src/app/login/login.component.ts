@@ -5,6 +5,7 @@ import { UserService } from '../user.service';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 import { Router } from '@angular/router';
+import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-login',
@@ -44,7 +45,10 @@ export class LoginComponent implements OnInit {
 
     this.userService.login({email, password}).subscribe(
       (data) => {
+        const decodedToken: any = jwt_decode(data.token);
+
         sessionStorage.setItem('token', data.token);
+        sessionStorage.setItem('name', decodedToken.name);
         return this.router.navigate(['/']);
       },
       (err) => {

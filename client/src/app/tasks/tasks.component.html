@@ -1,5 +1,33 @@
-<div class="tasks">
-    <div class="task">
-        <h3>title</h3>
+<div>
+    <nav class="navbar">
+        <div class="logo-wrapper">
+            <h1>Tasks</h1>
+        </div>
+
+        <!-- <ul>
+            <li>Register</li>
+            <li>Login</li>
+        </ul> -->
+
+        <div>
+	    {{ user }}
+        </div>
+    </nav>
+
+
+    <div class="tasks">
+        <table>
+            <div class="task" *ngFor="let task of tasks">
+                <tr>
+                    <td class="task-name">{{task.name}}</td>
+                    <div class="buttons hide">
+                        <td><button class="button">Edit</button></td>
+                        <td><button class="button">Delete</button></td>
+                        <td><button class="button">Done</button></td>
+                    </div>
+                </tr>
+            </div>
+        </table>
     </div>
+
 </div>

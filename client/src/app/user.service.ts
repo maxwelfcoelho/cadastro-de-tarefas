@@ -27,7 +27,11 @@ export class UserService {
     });
   }
 
-  public getToken(): string {
+  getToken(): string {
     return sessionStorage.getItem('token') ?? '';
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.getToken();
   }
 }
