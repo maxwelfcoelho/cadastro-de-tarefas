@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ITask } from '../models/ITask';
 import { TasksService } from '../tasks.service';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
@@ -35,6 +35,26 @@ export class TasksComponent implements OnInit {
     this.tasksService.getTasks().subscribe(
       (data) => {
          this.tasks = data
+      }
+    )
+  }
+
+  deleteTask(id: string): void {
+    const shouldDelete = confirm('Você quer realmente deletar está tarefa?');
+
+   if (shouldDelete) {
+      this.tasksService.deleteTask(id).subscribe(
+        (data) => {
+          this.getTasks();
+        }
+      )
+   }
+  }
+
+  completeTask(id: string): void {
+    this.tasksService.completeTask(id).subscribe(
+      (data) => {
+        this.getTasks();
       }
     )
   }

@@ -28,11 +28,11 @@
         <table>
             <div class="task" *ngFor="let task of tasks">
                 <tr>
-                    <td class="task-name">{{task.name}}</td>
+                    <td class="task-name" [ngClass]="task.completed ? 'strikethrough' : 'null'">{{task.name}}</td>
                     <div class="buttons">
                         <td><button class="button" title="Editar"><fa-icon [icon]="editIcon"></fa-icon></button></td>
-                        <td><button class="button" title="Excluir"><fa-icon [icon]="trashIcon"></fa-icon></button></td>
-                        <td><button class="button" title="Completar"><fa-icon [icon]="checkIcon"></fa-icon></button></td>
+                        <td><button class="button" title="Excluir" (click)="deleteTask(task._id || '')"><fa-icon [icon]="trashIcon"></fa-icon></button></td>
+                        <td><button class="button" title="Completar" (click)="completeTask(task._id || '')"><fa-icon [icon]="checkIcon"></fa-icon></button></td>
                     </div>
                 </tr>
             </div>

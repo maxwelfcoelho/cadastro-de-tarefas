@@ -14,4 +14,12 @@ export class TasksService {
   getTasks(): Observable<any> {
     return this.http.get(`${this.baseUrl}/tasks`);
   }
+
+  deleteTask(id: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/task/delete/${id}`);
+  }
+
+  completeTask(id: string): Observable<any> {
+    return this.http.patch(`${this.baseUrl}/task/completed/${id}`, {});
+  }
 }

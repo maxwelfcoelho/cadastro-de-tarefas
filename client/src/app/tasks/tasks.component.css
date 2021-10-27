@@ -78,3 +78,6 @@
     visibility: hidden;
 }
 
+.strikethrough {
+    text-decoration: line-through;
+}
