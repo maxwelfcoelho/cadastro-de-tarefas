@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+
+    <form class="form" [formGroup]="editForm">
+        <h2>Editar tarefa</h2>
+
+        <input type="text" placeholder="Nome da tarefa" formControlName="name">
+        <div>
+            <button class="button" (click)="cancel()">Cancelar</button>
+            <button class="button button-main" (click)="editTask()">Editar</button>
+        </div>
+    </form>
+</div>

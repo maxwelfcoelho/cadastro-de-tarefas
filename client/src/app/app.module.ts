@@ -12,6 +12,7 @@ import { HttpInterceptorDefault } from './services/http-interceptors/http-interc
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { CreatetaskComponent } from './pages/createtask/createtask.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { EdittaskComponent } from './pages/edittask/edittask.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     TasksComponent,
     CreatetaskComponent,
-    NavbarComponent
+    NavbarComponent,
+    EdittaskComponent
   ],
   imports: [
     BrowserModule,

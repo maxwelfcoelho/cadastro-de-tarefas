@@ -29,12 +29,14 @@
             <div class="task" *ngFor="let task of tasks">
                 <tr>
                     <td class="task-name" [ngClass]="task.completed ? 'strikethrough' : 'null'">{{task.name}}</td>
+            
                     <div class="buttons">
-                        <td><button class="button" title="Editar"><fa-icon [icon]="editIcon"></fa-icon></button></td>
+                        <td><button class="button" title="Editar" [disabled]="task.completed" (click)="edit(task._id || '')"><fa-icon [icon]="editIcon"></fa-icon></button></td>
                         <td><button class="button" title="Excluir" (click)="deleteTask(task._id || '')"><fa-icon [icon]="trashIcon"></fa-icon></button></td>
                         <td><button class="button" title="Completar" (click)="completeTask(task._id || '')"><fa-icon [icon]="checkIcon"></fa-icon></button></td>
                     </div>
                 </tr>
+
             </div>
         </table>
     </div>

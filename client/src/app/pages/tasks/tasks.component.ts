@@ -33,6 +33,10 @@ export class TasksComponent implements OnInit {
     this.getTasks();
   }
 
+  edit(id: string): void {
+    this.router.navigate(['edit', id]);
+  }
+
   getTasks(): void {
     this.tasksService.getTasks().subscribe(
       (data) => {

@@ -61,6 +61,17 @@
     width: 95%;
 }
 
+.tasks .task-input {
+    padding: 7px;
+    width: 60%;
+}
+
+.tasks .edit {
+    margin-left: 10px;
+    padding: 7px;
+    cursor: pointer;
+}
+
 .tasks .buttons {
     width: 5%;
 }
