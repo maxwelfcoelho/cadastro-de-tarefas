@@ -1,0 +1,27 @@
+.wrapper {
+    display:flex; 
+    justify-content:center;
+    align-items:center;
+    height: 90vh;
+}
+
+.form {
+    width: 400px;
+    border: 1px solid #DDD;
+    padding: 20px;
+}
+
+.form h2 {
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+.form input {
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form button {
+    margin-right: 6px;
+}

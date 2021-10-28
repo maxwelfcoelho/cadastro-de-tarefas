@@ -6,17 +6,21 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
 import { HttpInterceptorDefault } from './services/http-interceptors/http-interceptor';
-import { TasksComponent } from './tasks/tasks.component';
+import { TasksComponent } from './pages/tasks/tasks.component';
+import { CreatetaskComponent } from './pages/createtask/createtask.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    TasksComponent
+    TasksComponent,
+    CreatetaskComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

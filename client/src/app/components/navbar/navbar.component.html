@@ -1,0 +1,23 @@
+<nav class="navbar">
+    <div class="logo-wrapper">
+        <h1>Tasks</h1>
+    </div>
+
+    <!-- <ul>
+        <li>Register</li>
+        <li>Login</li>
+    </ul> -->
+
+    <div class="user" (click)="hideModal = !hideModal">
+    {{ user.charAt(0) | uppercase }}
+    </div>
+</nav>
+
+<div class="modal" [ngClass]="{'hide' : hideModal}">
+    <div class="modal-header">
+        {{ user }}
+    </div>
+    <div class="modal-body">
+        <button (click)="logout()">Logout</button>
+    </div>
+</div>

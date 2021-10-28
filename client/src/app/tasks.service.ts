@@ -22,4 +22,8 @@ export class TasksService {
   completeTask(id: string): Observable<any> {
     return this.http.patch(`${this.baseUrl}/task/completed/${id}`, {});
   }
+
+  createTask(name: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/task/create`, {name});
+  }
 }

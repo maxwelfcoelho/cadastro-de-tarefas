@@ -81,3 +81,21 @@
 .strikethrough {
     text-decoration: line-through;
 }
+
+.add {
+    display: block;
+    background-color: #457b9d;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: #FFF;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.icon-wrapper {
+    text-align: center;
+    position:relative;
+    top: calc(50% - 10px);
+    font-size: 1.4em;
+}

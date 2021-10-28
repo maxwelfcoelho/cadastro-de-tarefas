@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+
+    <form class="form" [formGroup]="createTaskForm">
+        <h2>Criar nova tarefa</h2>
+
+        <input type="text" placeholder="Nome da tarefa" formControlName="name">
+        <div>
+            <button class="button" (click)="cancel()">Cancelar</button>
+            <button class="button button-main" (click)="createTask()">Criar</button>
+        </div>
+    </form>
+</div>

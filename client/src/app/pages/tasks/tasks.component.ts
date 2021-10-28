@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ITask } from '../models/ITask';
-import { TasksService } from '../tasks.service';
+import { ITask } from '../../models/ITask';
+import { TasksService } from '../../tasks.service';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faEdit } from '@fortawesome/free-regular-svg-icons';
 import { faCheckSquare } from '@fortawesome/free-regular-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,6 +20,7 @@ export class TasksComponent implements OnInit {
   trashIcon = faTrashAlt;
   editIcon = faEdit;
   checkIcon = faCheckSquare;
+  plusIcon = faPlus;
 
   hideModal = true;
 
