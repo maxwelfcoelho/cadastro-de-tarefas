@@ -22,6 +22,7 @@ app.post('/api/register', user.register)
 app.post('/api/login', user.login)
 
 app.get('/api/tasks', isLogged, task.list)
+app.get('/api/task/:id', isLogged, task.getById)
 app.post('/api/task/create', isLogged, task.create)
 app.delete('/api/task/delete/:id', isLogged, task.remove)
 app.patch('/api/task/update', isLogged, task.update)

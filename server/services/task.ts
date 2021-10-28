@@ -6,6 +6,15 @@ const list = async (userId: string) => {
     return tasks
 }
 
+const getById = async (id: string) => {
+    if (!id) {
+        throw new Error('id is rquired')
+    }
+
+    const task = await Task.findById(id)
+    return task
+}
+
 const create = async (name: string, userId: string) => {
     if (!name) {
         throw new Error('name is required')
@@ -62,6 +71,7 @@ const setComplete = async (id: string) => {
 
 export {
     list,
+    getById,
     create,
     remove,
     update,

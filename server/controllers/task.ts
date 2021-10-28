@@ -8,6 +8,16 @@ const list =  async (req: Request<any>, res: Response<any>) => {
     res.status(200).json(tasks)
 }
 
+const getById = async (req: Request<any>, res: Response<any>) => {
+    try {
+        const id = req.params.id
+        const foundTask = await task.getById(id)
+        res.status(200).json(foundTask)
+    } catch (err: any) {
+        return error(res, err)
+    }
+}
+
 const create = async (req: Request<any>, res: Response<any>) => {
     try {
         const name = req.body.name
@@ -61,6 +71,7 @@ const setComplete = async (req: Request<any>, res: Response<any>) => {
 
 export {
     list,
+    getById,
     create,
     remove,
     update,
